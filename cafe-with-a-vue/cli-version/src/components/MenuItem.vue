@@ -1,54 +1,37 @@
 <template>
-  <div>
+ <div>
     <img
       class="menu-item__image"
-      :src="item.image.source"
-      :alt="item.image.alt"
+      :src="image.source"
+      :alt="image.alt"
     />
     <div>
-      <h3>{{ item.name }}</h3>
-      <p v-if="item.inStock">En stock</p>
+      <h3>{{ name }}</h3>
+      <p v-if="inStock">En stock</p>
       <p v-else>En rupture de stock</p>
       <div>
-        <label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
+        <label for="add-item-quantity">Quantité : {{ quantity }}</label>
         <input
-          v-model.number="item.quantity"
+          v-model.number="quantity"
           id="add-item-quantity"
           type="number"
         />
-        <button @click="addToShoppingCart(item.quantity)">
+        <button @click="addToShoppingCart(quantity)">
           Ajouter au panier d'achat
         </button>
       </div>
     </div>
-  </div>
-  
+ </div>
 </template>
 
 <script>
 export default {
   name: "MenuItem",
-  props: ["name", "source", "alt", "inStock", "quantity"],
+  props: ["addToShoppingCart", "image", "inStock", "name", "quantity"]
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+<style  lang="scss">
 
-.menu-item {
-  display: flex;
-  width: 500px;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.menu-item__image {
-  max-width: 300px;
-}
 </style>

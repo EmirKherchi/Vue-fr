@@ -9,15 +9,20 @@
     </p>
     <section class="menu">
       <h2>Menu</h2>
-      <div v-for="item in simpleMenu" :key="item.name" class="menu-item">
-      <MenuItem
-        :name="item.name"
-        :source="item.image.source"
-        :alt="item.image.alt"
-        :inStock="item.inStock"
-        :quantity="item.quantity"
-      />
-      </div>
+      
+        <MenuItem
+          v-for="item in simpleMenu"
+          :key="item.name"
+          class="menu-item"
+          :image ="item.image"
+          :name="item.name"
+          :src="item.image.source"
+          :alt="item.image.alt"
+          :inStock="item.inStock"
+          :quantity="item.quantity"
+          :addToShoppingCart="addToShoppingCart"
+        />
+     
     </section>
 
     <aside class="shopping-cart">
@@ -61,7 +66,7 @@ export default {
         {
           name: "Croissant",
           image: {
-            source: "./images/croissant.jpg",
+            source: "../public/croissant.jpg",
             alt: "Un croissant",
           },
           inStock: true,
@@ -70,7 +75,7 @@ export default {
         {
           name: "Baguette de pain",
           image: {
-            source: "./images/french-baguette.jpeg",
+            source: "../public/french-baguette.jpg",
             alt: "Quatre baguettes de pain",
           },
           inStock: true,
@@ -79,7 +84,7 @@ export default {
         {
           name: "Éclair",
           image: {
-            source: "./images/eclair.jpg",
+            source: "../public/eclair.jpg",
             alt: "Éclair au chocolat",
           },
           inStock: false,
@@ -103,12 +108,49 @@ export default {
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+<style  lang="scss">
+.app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
+
+.description {
+  max-width: 960px;
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  font-style: italic;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.menu-item__image {
+  max-width: 300px;
+}
+
+.shopping-cart {
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+
+
 </style>
