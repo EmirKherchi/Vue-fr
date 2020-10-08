@@ -14,7 +14,7 @@
         :name="item.name"
         :source="item.image.source"
         :alt="item.image.alt"
-        v-if inStock="item.inStock"
+        :inStock="item.inStock"
         :quantity="item.quantity"
       />
       </div>
