@@ -32,7 +32,8 @@
 <script>
 export default {
   name: 'MenuItem',
-  props: [item.name,item.image,item.source,item.alt,item.inStock,item.quantity]
+  props: ["name","source","alt","inStock","quantity"],
+  
 }
 </script>
 

@@ -10,7 +10,13 @@
       est difficile de s'arrêter.
     </p>
 
-    <MenuItem />
+    <MenuItem
+     name = "item.name"
+     source =":src=item.image.source"
+     alt = ":alt=item.image.alt"
+     inStock = "v-if=item.inStock"
+     quantity="item.quantity"    
+    />
 
 
     <aside class="shopping-cart">
